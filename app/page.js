@@ -266,7 +266,7 @@ opacity:0,
         </div>
       </div>
 
-      <section className="min-h-screen">
+      <section className="min-h-screen mb-20">
         <p
           className="flex items-center justify-center text-center font-bold text-5xl md:text-7xl font-geist mb-10 text-white"
           style={{ textShadow: "2px 2px 2px black" }}
