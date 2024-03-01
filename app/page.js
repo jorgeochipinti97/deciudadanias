@@ -94,12 +94,11 @@ export default function Home() {
               Su aliado confiable.
             </p>
           </div>
-          <div >
+          <div>
             <div className="flex justify-center w-full">
-
-            <p className="text-center text-white text-xl md:text-4xl font-geist font-extralight tracking-tighter mt-10  w-6/12 ">
-              Expertos en gestionar ciudadanias y visas en
-            </p>
+              <p className="text-center text-white text-xl md:text-4xl font-geist font-extralight tracking-tighter mt-10  w-6/12 ">
+                Expertos en gestionar ciudadanias y visas en
+              </p>
             </div>
             <div className="flex w-full justify-center my-10 mt-5">
               <div className="mx-5 flex flex-col ">
@@ -181,7 +180,7 @@ export default function Home() {
             </p>
           </div>
           <div className="mx-2 flex mt-5 md:mt-0 flex-col items-center justify-center">
-          <p className="font-bold text-white text-center text-4xl degrade2">
+            <p className="font-bold text-white text-center text-4xl degrade2">
               +15{" "}
             </p>
             <p className="tracking-tighter text-white text-md  text-center">
@@ -190,7 +189,7 @@ export default function Home() {
             </p>
           </div>
           <div className="mx-2 flex mt-5 md:mt-0 flex-col items-center justify-center">
-          <p className="font-bold text-white text-center text-4xl degrade2">
+            <p className="font-bold text-white text-center text-4xl degrade2">
               +200{" "}
             </p>
             <p className="ftracking-tighter text-white text-md  text-center">
@@ -202,24 +201,29 @@ export default function Home() {
       </div>
 
       <section className="min-h-screen">
-      <p
-                className="flex items-center justify-center text-center font-bold text-7xl font-geist mb-10 text-white"
-                style={{ textShadow: "2px 2px 2px black" }}
-              >
-                Nuestros servicios.
-              </p>
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <p
+          className="flex items-center justify-center text-center font-bold text-5xl md:text-7xl font-geist mb-10 text-white"
+          style={{ textShadow: "2px 2px 2px black" }}
+        >
+          Nuestros servicios.
+        </p>
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full ">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white/20 p-6 rounded-lg shadow-md flex items-center justify-center flex-col"
+              className="flex justify-center"
             >
-              <h3 className="leading-6 font-semibold text-2xl text-white tracking-tighter font-geist mb-2">
-                {service.name}
-              </h3>
-              <p className="text-[#f5f5f7] mt-5 leading-4	 text-md font-mono tracking-tighter">
-                {service.description}
-              </p>
+              <div
+                key={index}
+                className="bg-white/20 p-6 rounded-lg shadow-md flex items-center justify-center flex-col md:w-full w-10/12"
+              >
+                <h3 className="leading-6 font-semibold text-2xl text-white tracking-tighter font-geist mb-2">
+                  {service.name}
+                </h3>
+                <p className="text-[#f5f5f7] mt-5 leading-4	 text-md font-mono tracking-tighter">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -281,7 +285,7 @@ export default function Home() {
           <section className="flex justify-center ">
             <div className="flex  flex-col  md:mt-0 mt-5    justify-center ">
               <p
-                className="flex items-center justify-center text-center font-bold text-7xl font-geist mb-10 text-white"
+                className="flex items-center justify-center text-center mx-2 font-bold text-5xl md:text-7xl font-geist mb-10 text-white"
                 style={{ textShadow: "2px 2px 2px black" }}
               >
                 Nuestro Equipo.
