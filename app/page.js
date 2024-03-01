@@ -44,7 +44,7 @@ export default function Home() {
       response.data &&
         setTimeout(() => {
           gsap.to(".alert", {
-opacity:0,
+            opacity: 0,
             ease: Power1.easeIn,
           });
         }, 2000);
@@ -72,7 +72,7 @@ opacity:0,
     {
       name: "Búsqueda de partidas",
       description:
-        "Te ayudamos a encontrar partidas de nacimiento, matrimonio, defunción y otros documentos esenciales.",
+        "Te ayudamos a encontrar partidas de nacimiento, matrimonio, defunción y otros documentos esenciales en todo el mundo.",
     },
     {
       name: "Certificados",
@@ -83,6 +83,11 @@ opacity:0,
       name: "Apostillamiento",
       description:
         "Servicio de apostillamiento para validar la autenticidad de tus documentos a nivel internacional.",
+    },
+    {
+      name: "Migraciones a Argentina",
+      description:
+        "Asesoramiento integral y gestión de trámites para tu migración a Argentina, facilitando el proceso de establecimiento en el país.",
     },
   ];
   const team = [
@@ -110,7 +115,7 @@ opacity:0,
     <>
       <Alert
         className="alert fixed w-[80vw] md:w-[30vw] right-5 bottom-20 z-50"
-        style={{ opacity:0 }}
+        style={{ opacity: 0 }}
       >
         <svg
           width={20}
@@ -157,7 +162,7 @@ opacity:0,
               Deciudadanias
             </p>
             <p className="text-slate-200 font-mono font-Ciudadania Italiana   tracking-tighter  Ciudadania Española:text-neutral-200  text-center text-md  ">
-              Su aliado confiable.
+              Asesorias
             </p>
           </div>
           <div>
