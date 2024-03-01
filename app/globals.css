@@ -2,184 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
 
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: black
+  background-color: black;
 }
 
-:root {
-  --facebook: #3b5998;
-    --instagram: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    --youtube: #FF0000;
-    --x: #333;
-    --linkedin: #0072b1;
-    --whatsapp: #25d366;
-    --tiktok: #4f4f4f;
-}
+.degrade {
+  background: #ebebee;
+  background: linear-gradient(to right, #ebebee 0%, #c2c3ce 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
-
-.icons {
-  transform: scale(0.6);
-  display: flex;
-  justify-content: center;
-  gap: 10px;
 }
-
-.icons .icon {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid white;
-  border-radius: 50%;
-  transition: background-color 300ms, border-width 300ms;
-}
-
-.icons .icon svg {
-  transition: transform 300ms;
-}
-
-.icons .facebook {
-  --color: var(--facebook);
-}
-
-.icons .instagram {
-  --color: var(--instagram);
-}
-
-.icons .youtube {
-  --color: var(--youtube);
-}
-
-.icons .x {
-  --color: var(--x);
-}
-
-.icons .linkedin {
-  --color: var(--linkedin);
-}
-.icons .whatsapp {
-  --color: var(--whatsapp);
-}
-.icons .tiktok {
-  --color: var(--tiktok);
-}
-
-.icons .icon:hover {
-  background: var(--color);
-  border-width: 1px;
-}
-
-.icons .icon:hover svg {
-  transform: scale(1.1);
+.degrade2 {
+  background: #16A34A;
+  background: linear-gradient(to right, #16A34A 0%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 
-
-
-.buttonHover {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: white;
-  background-color: #171717;
-  padding: 1em 2em;
-  border: none;
-  border-radius: .6rem;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
+.video-background {
+  position: fixed; /* or absolute */
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: -1; /* Ensure video is behind other content */
 }
-
-.buttonHover span:not(:nth-child(6)) {
+.overlay {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  height: 30px;
-  width: 30px;
-  background-color: #0c66ed;
-  border-radius: 50%;
-  transition: .6s ease;
-}
-
-.buttonHover span:nth-child(6) {
-  position: relative;
-}
-
-.buttonHover span:nth-child(1) {
-  transform: translate(-3.3em, -4em);
-}
-
-.buttonHover span:nth-child(2) {
-  transform: translate(-6em, 1.3em);
-}
-
-.buttonHover span:nth-child(3) {
-  transform: translate(-.2em, 1.8em);
-}
-
-.buttonHover span:nth-child(4) {
-  transform: translate(3.5em, 2em);
-}
-
-.buttonHover span:nth-child(5) {
-  transform: translate(3.5em, -3.8em);
-}
-
-.buttonHover:hover span:not(:nth-child(6)) {
-  transform: translate(-50%, -50%) scale(4);
-  transition: 1.5s ease;
-}
-  
-
-.form {
-  --width-of-input: 200px;
-  --border-height: 1px;
-  --border-before-color: rgba(221, 221, 221, 0.39);
-  --border-after-color: #5891ff;
-  --input-hovered-color: #4985e01f;
-  position: relative;
-  width: var(--width-of-input);
- }
- /* styling of Input */
- .input {
-  color: #fff;
-  font-size: 0.9rem;
-  background-color: transparent;
-  width: 100%;
-  box-sizing: border-box;
-  padding-inline: 0.5em;
-  padding-block: 0.7em;
-  border: none;
-  border-bottom: var(--border-height) solid var(--border-before-color);
- }
- /* styling of animated border */
- .input-border {
-  position: absolute;
-  background: var(--border-after-color);
-  width: 0%;
-  height: 2px;
+  top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  transition: 0.3s;
- }
- /* Hover on Input */
- input:hover {
-  background: var(--input-hovered-color);
- }
- 
- input:focus {
-  outline: none;
- }
- /* here is code of animated border */
- input:focus ~ .input-border {
+  background: rgba(0, 0, 0, 0.8); /* Black overlay with 50% opacity */
+  z-index: 1; /* Above the video */
+}
+video {
+  /* Cover the entire page */
   width: 100%;
- }
- /* === if you want to do animated border on typing === */
- /* remove input:focus code and uncomment below code */
- /* input:valid ~ .input-border{
-   width: 100%;
- } */
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+  z-index: -2;
+}
