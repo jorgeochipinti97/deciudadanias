@@ -64,11 +64,7 @@ export default function Home() {
       description:
         "Descubre tus raíces y construye tu árbol genealógico con nuestro apoyo especializado.",
     },
-    {
-      name: "Traducción",
-      description:
-        "Servicios de traducción especializados para documentos legales y personales.",
-    },
+
     {
       name: "Búsqueda de partidas",
       description:
@@ -80,9 +76,9 @@ export default function Home() {
         "Gestión y obtención de certificados necesarios para trámites legales y administrativos.",
     },
     {
-      name: "Apostillamiento",
+      name: "Traducción y Apostillamiento",
       description:
-        "Servicio de apostillamiento para validar la autenticidad de tus documentos a nivel internacional.",
+        "Servicios de traducción especializados para documentos legales y personales, junto con el servicio de apostillamiento para validar la autenticidad de tus documentos a nivel internacional.",
     },
     {
       name: "Migraciones a Argentina",
