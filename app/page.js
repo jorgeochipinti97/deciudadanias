@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
@@ -13,7 +15,44 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import { useForm, Controller } from "react-hook-form";
+import axios from "axios";
+import { useState } from "react";
+import gsap, { Power1 } from "gsap";
 export default function Home() {
+  const [tramite, setTramite] = useState("");
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post("/api/consulta", {
+        ...data,
+        tramiteSeleccionado: tramite,
+      });
+
+      response.data &&
+        gsap.to(".alert", {
+          opacity: 1,
+          ease: Power1.easeIn,
+        });
+
+      response.data &&
+        setTimeout(() => {
+          gsap.to(".alert", {
+opacity:0,
+            ease: Power1.easeIn,
+          });
+        }, 2000);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const services = [
     {
       name: "Asesoramiento para ciudadanía",
@@ -65,17 +104,44 @@ export default function Home() {
       designation: "IT",
       image: "/jor.png",
     },
-    // {
-    //   id: 4,
-    //   name: "Agustina Ochipinti",
-    //   designation: "UX Designer",
-    //   image:
-    //     "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    // },
   ];
 
   return (
     <>
+      <Alert
+        className="alert fixed w-[80vw] md:w-[30vw] right-5 bottom-20 z-50"
+        style={{ opacity:0 }}
+      >
+        <svg
+          width={20}
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 48 48"
+        >
+          <g>
+            <path fill="#fff" fillOpacity="0.01" d="M0 0H48V48H0z"></path>
+            <path
+              fill="#000"
+              stroke="#000"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="4"
+              d="M24 4l5.253 3.832 6.503-.012 1.997 6.188 5.268 3.812L41 24l2.021 6.18-5.268 3.812-1.997 6.188-6.503-.012L24 44l-5.253-3.832-6.503.012-1.997-6.188-5.268-3.812L7 24l-2.021-6.18 5.268-3.812 1.997-6.188 6.503.012L24 4z"
+            ></path>
+            <path
+              stroke="#fff"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="4"
+              d="M17 24l5 5 10-10"
+            ></path>
+          </g>
+        </svg>
+        <AlertTitle>¡Consulta enviada con éxito!</AlertTitle>
+        <AlertDescription>
+          Gracias por confiar en nosotros, nos comunicaremos a la brevedad.
+        </AlertDescription>
+      </Alert>
       <div className="video-background">
         <div className="overlay"></div>{" "}
         <video autoPlay muted loop playsInline id="myVideo">
@@ -169,8 +235,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 w-screen bg-black/50 md:py-5  items-start">
-          <div className="mx-2 flex mt-5 md:mt-0 flex-col items-center justify-center">
+        <div className="grid grid-cols-3 w-screen bg-black/50 py-5  rounded-md items-start">
+          <div className="mx-2 flex  md:mt-0 flex-col items-center justify-center">
             <p className="font-bold text-white text-center text-4xl degrade2">
               +100{" "}
             </p>
@@ -179,7 +245,7 @@ export default function Home() {
               Partidas encontradas.
             </p>
           </div>
-          <div className="mx-2 flex mt-5 md:mt-0 flex-col items-center justify-center">
+          <div className="mx-2 flex  md:mt-0 flex-col items-center justify-center">
             <p className="font-bold text-white text-center text-4xl degrade2">
               +15{" "}
             </p>
@@ -188,7 +254,7 @@ export default function Home() {
               Tramites finalizados.
             </p>
           </div>
-          <div className="mx-2 flex mt-5 md:mt-0 flex-col items-center justify-center">
+          <div className="mx-2 flex  md:mt-0 flex-col items-center justify-center">
             <p className="font-bold text-white text-center text-4xl degrade2">
               +200{" "}
             </p>
@@ -209,10 +275,7 @@ export default function Home() {
         </p>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full ">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="flex justify-center"
-            >
+            <div key={index} className="flex justify-center">
               <div
                 key={index}
                 className="bg-white/20 p-6 rounded-lg shadow-md flex items-center justify-center flex-col md:w-full w-10/12"
@@ -230,13 +293,24 @@ export default function Home() {
 
         <div className="  grid grid-cols-1 md:grid-cols-2 w-screen mt-20  ">
           <section className="flex justify-center h-full items-center ">
-            <form className="w-11/12 md:w-6/12  p-5 rounded-xl bg-[rgba(0,0,0,0.8)] h-fit">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="w-11/12 md:w-6/12  p-5 rounded-xl bg-[rgba(0,0,0,0.8)] h-fit"
+            >
               <section>
                 <Label className="font-bold text-white">Nombre Completo</Label>
-                <Input className="font-mono" />
+                <Input
+                  {...register("nombreCompleto", {
+                    required: "Este campo es obligatorio",
+                  })}
+                  className="font-mono"
+                />
               </section>
               <section className="mt-5">
-                <Select className="w-full font-mono">
+                <Select
+                  className="w-full font-mono"
+                  onValueChange={(e) => setTramite(e)}
+                >
                   <SelectTrigger className="w-full font-mono">
                     <SelectValue
                       className="font-mono"
@@ -269,11 +343,38 @@ export default function Home() {
                 <Label className="font-bold text-white">
                   Pais de residencia
                 </Label>
-                <Input className="font-mono" />
+                <Input
+                  className="font-mono"
+                  {...register("paisResidencia", {
+                    required: "Este campo es obligatorio",
+                  })}
+                />
+              </section>
+              <section className="mt-5">
+                <Label className="font-bold text-white">Email</Label>
+                <Input
+                  className="font-mono"
+                  {...register("email", {
+                    required: "Este campo es obligatorio",
+                  })}
+                />
+              </section>
+              <section className="mt-5">
+                <Label className="font-bold text-white">
+                  Número de celular
+                </Label>
+                <Input
+                  className="font-mono"
+                  {...register("numero", {
+                    required: "Este campo es obligatorio",
+                  })}
+                />
               </section>
               <section className="mt-5 flex flex-col">
                 <Textarea
+                  required
                   className="font-mono"
+                  {...register("informacionAdicional")}
                   placeholder="Aporta cualquier dato de valor para que podamos interpretar el estado del trámite."
                 />
               </section>
