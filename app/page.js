@@ -84,7 +84,7 @@ export default function Home() {
         </video>
       </div>
 
-      <div className="min-h-screen flex flex-col  justify-around">
+      <div className="min-h-screen flex flex-col  justify-around ">
         <div>
           <div>
             <p className="degrade text-5xl md:text-7xl  text-center font-geist font-bold  tracking-tighter">
@@ -123,7 +123,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center flex-col items-center my-10">
+          <div className="flex justify-center flex-col items-center ">
             <p className="text-white font-bold text-xl w-10/12 text-center  uppercase font-geist tracking-tighter">
               Su puerta hacia nuevos{" "}
               <span className="text-2xl degrade2">horizontes</span>.
