@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, img } from "@/components/ui/avatar";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
 import {
@@ -19,6 +19,7 @@ import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
 import { useState } from "react";
 import gsap, { Power1 } from "gsap";
+import { Spotlight } from "./components/Spotlight";
 export default function Home() {
   const [tramite, setTramite] = useState("");
   const {
@@ -120,7 +121,7 @@ export default function Home() {
           viewBox="0 0 48 48"
         >
           <g>
-            <path fill="#fff" fillOpacity="0.01" d="M0 0H48V48H0z"></path>
+            <path fill="#000" fillOpacity="0.01" d="M0 0H48V48H0z"></path>
             <path
               fill="#000"
               stroke="#000"
@@ -130,7 +131,7 @@ export default function Home() {
               d="M24 4l5.253 3.832 6.503-.012 1.997 6.188 5.268 3.812L41 24l2.021 6.18-5.268 3.812-1.997 6.188-6.503-.012L24 44l-5.253-3.832-6.503.012-1.997-6.188-5.268-3.812L7 24l-2.021-6.18 5.268-3.812 1.997-6.188 6.503.012L24 4z"
             ></path>
             <path
-              stroke="#fff"
+              stroke="#000"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="4"
@@ -144,6 +145,10 @@ export default function Home() {
         </AlertDescription>
       </Alert>
       <div className="video-background">
+        <Spotlight
+          className="-top-40 z-50 left-0 md:left-60 md:-top-20"
+          fill="black"
+        />
         <div className="overlay"></div>{" "}
         <video autoPlay muted loop playsInline id="myVideo">
           <source src={"/video1.mp4"} type="video/mp4" />
@@ -152,126 +157,194 @@ export default function Home() {
       </div>
 
       <div className="min-h-screen flex flex-col  justify-around ">
-        <div>
+        <div className="md:mt-10 mt-20">
           <div>
-            <p className="degrade text-5xl md:text-7xl  text-center font-geist font-bold  tracking-tighter">
+            <p
+              style={{ textShadow: "2px 2px 10px #7c2d12" }}
+              className="text-white text-5xl md:text-7xl  text-center font-geist font-bold  tracking-tighter"
+            >
               Deciudadanias
-            </p>
-            <p className="text-slate-200 font-mono font-Ciudadania Italiana   tracking-tighter  Ciudadania Española:text-neutral-200  text-center text-md  ">
-              Asesorias
             </p>
           </div>
           <div>
             <div className="flex justify-center w-full">
-              <p className="text-center text-white text-xl md:text-4xl font-geist font-extralight tracking-tighter mt-10  w-6/12 ">
-                Expertos en gestionar ciudadanias y visas en
+              <p
+                style={{ textShadow: "2px 2px 10px #7c2d12" }}
+                className=" text-center text-white text-xl mb-10 uppercase md:text-2xl font-geist  tracking-tighter mt-10 w-10/12  md:w-6/12 "
+              >
+                Obtené el reconocimiento de tus raices
               </p>
             </div>
-            <div className="flex w-full justify-center my-10 mt-5">
-              <div className="mx-5 flex flex-col ">
-                <Avatar className="md:w-[10vw] w-[20vw] h-auto">
-                  <AvatarImage src="/esp.png" />
-                  <AvatarFallback>España</AvatarFallback>
-                </Avatar>
-              </div>
-
-              <div className="mx-5 flex flex-col">
-                <Avatar className="md:w-[10vw] w-[20vw] h-auto">
-                  <AvatarImage src="/ita.png" />
-                  <AvatarFallback>Italia</AvatarFallback>
-                </Avatar>
-              </div>
-              <div className="mx-5 flex flex-col">
-                <Avatar className="md:w-[10vw] w-[20vw] h-auto">
-                  <AvatarImage src="/usa.png" />
-                  <AvatarFallback>Estados Unidos</AvatarFallback>
-                </Avatar>
+            <div className="flex justify-center w-screen">
+              <div className="grid grid-cols-4 w-11/12 md:w-10/12  ">
+                <div className="flex justify-center">
+                  <div
+                    className=" hover:animate-tilt  shadowBox w-11/12 md:w-12/12 flex flex-col h-[30vh]  md:mt-0 md:w-6/12  rounded-xl "
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('./usa.jpg')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "left",
+                    }}
+                  ></div>
+                </div>
+                <div className="flex justify-center">
+                  <div
+                    className=" hover:animate-tilt  shadowBox w-11/12 md:w-12/12 flex flex-col h-[30vh]  md:mt-0 md:w-6/12  rounded-xl "
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('./esp.jpg')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "15% 75% ",
+                    }}
+                  ></div>
+                </div>
+                <div className="flex justify-center">
+                  <div
+                    className=" hover:animate-tilt  shadowBox w-11/12 md:w-12/12 flex flex-col h-[30vh]  md:mt-0 md:w-6/12  rounded-xl "
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('./ita.png')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                </div>
+                <div className="flex justify-center">
+                  <div
+                    className=" hover:animate-tilt  shadowBox w-11/12 md:w-12/12 flex flex-col h-[30vh]  md:mt-0 md:w-6/12  rounded-xl "
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('./arg.jpg')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                </div>
               </div>
             </div>
           </div>
           <div className="flex justify-center flex-col items-center ">
-            <p className="text-white font-bold text-xl w-10/12 text-center  uppercase font-geist tracking-tighter">
-              Su puerta hacia nuevos{" "}
-              <span className="text-2xl degrade2">horizontes</span>.
-            </p>
-            <div className="mt-5">
-              <Link href="https://wa.link/4e1ipl">
-                <Button variant="secondary" className="text-xl font-mono">
-                  {/* <svg
-                width={30}
-                className="mr-2"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
+            <p className="text-white mt-10  text-2xl w-10/12 text-center   font-geist font-light tracking-tighter">
+              Todo lo que necesitas{" "}
+              <span
+                className="text-orange-950 font-bold uppercase tracking-normal"
+                style={{ textShadow: "2px 2px 10px #7c2d12" }}
               >
-                <g>
-                  <path
-                    stroke="#fff"
-                    strokeWidth="1.5"
-                    d="M4 6v13a3 3 0 003 3h10a3 3 0 003-3V9a3 3 0 00-3-3H4zm0 0V5"
-                  ></path>
-                  <circle
-                    cx="12"
-                    cy="13"
-                    r="3"
-                    stroke="#fff"
-                    strokeWidth="1.5"
-                  ></circle>
-                  <path
-                    fill="#fff"
-                    d="M18 6v.75h.75V6H18zm-2.283-3.674l-.106-.742.106.742zM4.92 3.87l-.106-.743.106.743zM5.07 6.75H18v-1.5H5.071v1.5zM18.75 6V4.306h-1.5V6h1.5zm-3.139-4.416L4.814 3.126l.212 1.485L15.823 3.07l-.212-1.485zM4.814 3.126A1.821 1.821 0 003.25 4.93h1.5c0-.16.117-.295.276-.318l-.212-1.485zm13.936 1.18a2.75 2.75 0 00-3.139-2.722l.212 1.485a1.25 1.25 0 011.427 1.237h1.5zM5.071 5.25a.321.321 0 01-.321-.321h-1.5c0 1.006.815 1.821 1.821 1.821v-1.5z"
-                  ></path>
-                  <path
-                    stroke="#fff"
-                    strokeLinecap="round"
-                    strokeWidth="1.5"
-                    d="M10 19h4"
-                  ></path>
-                </g>
-              </svg> */}
-                  ¡Comenzá hoy!
+                {" "}
+                sin salir de tu casa
+              </span>
+            </p>
+            <div className="my-5">
+              <Link href="https://wa.link/4e1ipl">
+                <Button className="text-xl bg-orange-950 hover:bg-orange-900 transition-all duration-150 font-mono hover:animate-tilt">
+                  {/* <svg
+                    width={30}
+                    className="mr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <g>
+                      <path
+                        stroke="#000"
+                        strokeWidth="1.5"
+                        d="M4 6v13a3 3 0 003 3h10a3 3 0 003-3V9a3 3 0 00-3-3H4zm0 0V5"
+                      ></path>
+                      <circle
+                        cx="12"
+                        cy="13"
+                        r="3"
+                        stroke="#000"
+                        strokeWidth="1.5"
+                      ></circle>
+                      <path
+                        fill="#000"
+                        d="M18 6v.75h.75V6H18zm-2.283-3.674l-.106-.742.106.742zM4.92 3.87l-.106-.743.106.743zM5.07 6.75H18v-1.5H5.071v1.5zM18.75 6V4.306h-1.5V6h1.5zm-3.139-4.416L4.814 3.126l.212 1.485L15.823 3.07l-.212-1.485zM4.814 3.126A1.821 1.821 0 003.25 4.93h1.5c0-.16.117-.295.276-.318l-.212-1.485zm13.936 1.18a2.75 2.75 0 00-3.139-2.722l.212 1.485a1.25 1.25 0 011.427 1.237h1.5zM5.071 5.25a.321.321 0 01-.321-.321h-1.5c0 1.006.815 1.821 1.821 1.821v-1.5z"
+                      ></path>
+                      <path
+                        stroke="#000"
+                        strokeLinecap="round"
+                        strokeWidth="1.5"
+                        d="M10 19h4"
+                      ></path>
+                    </g>
+                  </svg> */}
+                  <svg
+                    width={30}
+                    className="mr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    stroke="#000"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="#fff"
+                      fillRule="evenodd"
+                      d="M3.5 12a8.5 8.5 0 118.5 8.5 8.455 8.455 0 01-4.542-1.314 1 1 0 00-.821-.113l-2.88.859 1.085-2.537a1 1 0 00-.07-.92A8.456 8.456 0 013.5 12zM12 1.5C6.201 1.5 1.5 6.201 1.5 12c0 1.838.473 3.568 1.305 5.073L1.08 21.107a1 1 0 001.206 1.351l4.5-1.342A10.456 10.456 0 0012 22.5c5.799 0 10.5-4.701 10.5-10.5S17.799 1.5 12 1.5zm2.293 12.682l-1.315.926A9.338 9.338 0 0111 13.585a10.202 10.202 0 01-1.624-2.114l.835-.709a1 1 0 00.236-1.232l-1.064-2a1 1 0 00-1.54-.283l-.316.275c-.759.662-1.208 1.75-.836 2.852A12.049 12.049 0 009.586 15c1.813 1.813 3.655 2.527 4.733 2.805.868.223 1.689-.076 2.268-.548l.591-.482a1 1 0 00-.12-1.634l-1.678-1a1 1 0 00-1.088.041z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                  Hablá con nosotros
                 </Button>
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-3 w-screen bg-black/50 py-5  rounded-md items-start">
-          <div className="mx-2 flex  md:mt-0 flex-col items-center justify-center">
-            <p className="font-bold text-white text-center text-4xl degrade2">
-              +100{" "}
-            </p>
-            <p className="tracking-tighter text-white text-md  text-center">
-              {" "}
-              Partidas encontradas.
-            </p>
-          </div>
-          <div className="mx-2 flex  md:mt-0 flex-col items-center justify-center">
-            <p className="font-bold text-white text-center text-4xl degrade2">
-              +15{" "}
-            </p>
-            <p className="tracking-tighter text-white text-md  text-center">
-              {" "}
-              Tramites finalizados.
-            </p>
-          </div>
-          <div className="mx-2 flex  md:mt-0 flex-col items-center justify-center">
-            <p className="font-bold text-white text-center text-4xl degrade2">
-              +200{" "}
-            </p>
-            <p className="ftracking-tighter text-white text-md  text-center">
-              {" "}
-              Asesoramientos.
-            </p>
+        <div className="flex justify-center">
+          <div className="grid grid-cols-3 w-8/12  py-5  rounded-md items-start">
+            <div className="mx-2 flex  md:mt-0 flex-col items-center justify-center">
+              <p
+                className="font-bold text-white text-center text-4xl "
+                style={{ textShadow: "2px 2px 10px #7c2d12" }}
+              >
+                +800{" "}
+              </p>
+              <p
+                className="tracking-tighter text-white text-md  text-center"
+                style={{ textShadow: "2px 2px 10px #7c2d12" }}
+              >
+                {" "}
+                Partidas encontradas.
+              </p>
+            </div>
+            <div
+              className="mx-2 flex  md:mt-0 flex-col items-center justify-center"
+              style={{ textShadow: "2px 2px 10px #7c2d12" }}
+            >
+              <p
+                style={{ textShadow: "2px 2px 10px #7c2d12" }}
+                className="font-bold text-white text-center text-4xl "
+              >
+                +500{" "}
+              </p>
+              <p className="tracking-tighter text-white text-md  text-center">
+                {" "}
+                Familias reconocidas.
+              </p>
+            </div>
+            <div className="mx-2 flex  md:mt-0 flex-col items-center justify-center">
+              <p
+                className="font-bold text-white text-center text-4xl "
+                style={{ textShadow: "2px 2px 10px #7c2d12" }}
+              >
+                +1200{" "}
+              </p>
+              <p
+                style={{ textShadow: "2px 2px 10px #7c2d12" }}
+                className="ftracking-tighter text-white text-md  text-center"
+              >
+                {" "}
+                Asesoramientos personalizados.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <section className="min-h-screen mb-20">
-        <p
-          className="flex items-center justify-center text-center font-bold text-5xl md:text-7xl font-geist mb-10 text-white"
-          style={{ textShadow: "2px 2px 2px black" }}
-        >
+        <p className="flex items-center justify-center text-center font-bold text-5xl md:text-7xl font-geist mb-10 text-white">
           Nuestros servicios.
         </p>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full ">
@@ -279,12 +352,12 @@ export default function Home() {
             <div key={index} className="flex justify-center">
               <div
                 key={index}
-                className="bg-white/20 p-6 rounded-lg shadow-md flex items-center justify-center flex-col md:w-full w-10/12"
+                className="bg-black/20 p-6 rounded-lg shadow-md flex items-center justify-center flex-col md:w-full w-10/12"
               >
                 <h3 className="leading-6 font-semibold text-2xl text-white tracking-tighter font-geist mb-2">
                   {service.name}
                 </h3>
-                <p className="text-[#f5f5f7] mt-5 leading-4	 text-md font-mono tracking-tighter">
+                <p className="text-white mt-5 leading-4	 text-md font-mono tracking-tighter">
                   {service.description}
                 </p>
               </div>
@@ -321,9 +394,21 @@ export default function Home() {
                   <SelectContent>
                     <SelectItem
                       className="font-mono"
+                      value="Pasaporte Italiano"
+                    >
+                      Pasaporte Italiano
+                    </SelectItem>
+                    <SelectItem
+                      className="font-mono"
                       value="Ciudadania Italiana"
                     >
                       Ciudadania Italiana
+                    </SelectItem>
+                    <SelectItem
+                      className="font-mono"
+                      value="Pasaporte Española"
+                    >
+                      Pasaporte Español
                     </SelectItem>
                     <SelectItem
                       className="font-mono"
@@ -336,6 +421,18 @@ export default function Home() {
                       value="Visa Estadounidense"
                     >
                       Visa Estadounidense
+                    </SelectItem>
+                    <SelectItem
+                      className="font-mono"
+                      value="Busqueda de partidas"
+                    >
+                      Busqueda de partidas
+                    </SelectItem>
+                    <SelectItem
+                      className="font-mono"
+                      value="Busqueda de partidas"
+                    >
+                      Formulario CNN
                     </SelectItem>
                   </SelectContent>
                 </Select>
@@ -386,10 +483,7 @@ export default function Home() {
           </section>
           <section className="flex justify-center ">
             <div className="flex  flex-col  md:mt-0 mt-5    justify-center ">
-              <p
-                className="flex items-center justify-center text-center mx-2 font-bold text-5xl md:text-7xl font-geist mb-10 text-white"
-                style={{ textShadow: "2px 2px 2px black" }}
-              >
+              <p className="flex items-center justify-center text-center mx-2 font-bold text-5xl md:text-7xl font-geist mb-10 text-white">
                 Nuestro Equipo.
               </p>
               <div className="flex justify-center ">
