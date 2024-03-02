@@ -293,7 +293,7 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-3 w-8/12  py-5  rounded-md items-start">
+          <div className="grid grid-cols-3 w-12/12 md:w-8/12  py-5  rounded-md items-start">
             <div className="mx-2 flex  md:mt-0 flex-col items-center justify-center">
               <p
                 className="font-bold text-white text-center text-4xl "
