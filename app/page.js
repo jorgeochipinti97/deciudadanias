@@ -215,7 +215,7 @@ export default function Home() {
                     className=" hover:animate-tilt  shadowBox w-11/12 md:w-12/12 flex flex-col h-[30vh]  md:mt-0 md:w-6/12  rounded-xl "
                     style={{
                       backgroundImage:
-                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('https://res.cloudinary.com/duptnofi0/image/upload/v1709477055/usa_onlizq.jpg')",
+                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('https://res.cloudinary.com/duptnofi0/image/upload/v1709477055/arg_gimlf6.jpg')",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
@@ -226,10 +226,10 @@ export default function Home() {
           </div>
           <div className="flex justify-center flex-col items-center ">
             <p className="text-white mt-10  text-2xl w-10/12 text-center   font-geist font-light tracking-tighter">
-              Todo lo que necesitas{" "}
+              Todo lo que necesitas{" "}<br className="md:hidden  block"/>
               <span
                 className="text-orange-950 font-bold uppercase tracking-normal"
-                style={{ textShadow: "2px 2px 10px #7c2d12" }}
+                style={{ textShadow: "2px 2px 10px #fdba74" }}
               >
                 {" "}
                 sin salir de tu casa
