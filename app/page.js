@@ -182,7 +182,7 @@ export default function Home() {
                     className=" hover:animate-tilt  shadowBox w-11/12 md:w-12/12 flex flex-col h-[30vh]  md:mt-0 md:w-6/12  rounded-xl "
                     style={{
                       backgroundImage:
-                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('./usa.jpg')",
+                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('https://res.cloudinary.com/duptnofi0/image/upload/v1709477055/usa_onlizq.jpg')",
                       backgroundSize: "cover",
                       backgroundPosition: "left",
                     }}
@@ -193,7 +193,7 @@ export default function Home() {
                     className=" hover:animate-tilt  shadowBox w-11/12 md:w-12/12 flex flex-col h-[30vh]  md:mt-0 md:w-6/12  rounded-xl "
                     style={{
                       backgroundImage:
-                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('./esp.jpg')",
+                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('https://res.cloudinary.com/duptnofi0/image/upload/v1709477055/esp_wtailg.jpg')",
                       backgroundSize: "cover",
                       backgroundPosition: "15% 75% ",
                     }}
@@ -204,7 +204,7 @@ export default function Home() {
                     className=" hover:animate-tilt  shadowBox w-11/12 md:w-12/12 flex flex-col h-[30vh]  md:mt-0 md:w-6/12  rounded-xl "
                     style={{
                       backgroundImage:
-                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('./ita.png')",
+                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('https://res.cloudinary.com/duptnofi0/image/upload/v1709477056/ita_hccb15.png')",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
@@ -215,7 +215,7 @@ export default function Home() {
                     className=" hover:animate-tilt  shadowBox w-11/12 md:w-12/12 flex flex-col h-[30vh]  md:mt-0 md:w-6/12  rounded-xl "
                     style={{
                       backgroundImage:
-                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('./arg.jpg')",
+                        "linear-gradient(to right, rgba(0,0,0,.1), rgba(0,0,0,.3)),url('https://res.cloudinary.com/duptnofi0/image/upload/v1709477055/usa_onlizq.jpg')",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
