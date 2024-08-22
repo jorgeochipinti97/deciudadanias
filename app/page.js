@@ -88,12 +88,7 @@ export default function Home() {
     },
   ];
   const team = [
-    {
-      id: 1,
-      name: "Alejandra Susana Ifran",
-      designation: "Gestora",
-      image: "/ale.jpg",
-    },
+
     {
       id: 2,
       name: "Silvina Andrea Ifran",
